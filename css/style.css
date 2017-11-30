@@ -1,0 +1,254 @@
+html {
+  height: 100%;
+}
+
+nav {
+  background-color: #ee6e73 !important !important;
+  width: 80%;
+  height: 56px;
+  line-height: 56px;
+  margin-bottom: 1%
+}
+
+nav ul a {
+  color: #444;
+}
+
+nav .brand-logo {
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 700;
+  font-size: 2.5vw;
+  color: #444;
+}
+
+body {
+  background-color: #7571B1;
+
+}
+
+.mapInfo {
+  background: white;
+  background: rgba(255,255,255,0.8);
+  border-radius: 5px;
+  padding: 0 5px 0 5px;
+  font-family: "Amiko";
+}
+
+
+.axis path,
+.axis line {
+fill: none;
+stroke: grey;
+stroke-width: 1;
+shape-rendering: crispEdges;
+}
+
+/*sources {
+font-size:14px;
+fill:#e5e5e5;
+}
+
+.sources:hover {
+/*  font-size:18px;*/
+
+
+.overlay {
+fill: none;
+pointer-events: all;
+}
+
+.overlay2 {
+  fill: none;
+  pointer-events: all;
+}
+
+.focus circle {
+fill: #1d4995;
+stroke: #1d4995;
+}
+
+.focus text {
+  color: red;
+}
+
+.line {
+fill: none;
+stroke: #03CEA4;
+stroke-linejoin: round;
+stroke-linecap: round;
+stroke-width: 2.5px;
+
+}
+
+#map {
+  height: 100%;
+}
+
+
+
+#intMap  {
+    height: 550px;
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+#interactivemap {
+  font-family: "Amiko";
+  background-color: #f3f3f3;
+  width: 50%;
+  margin-left: 10%;
+  margin-bottom: 1%;
+  display: inline-block;
+}
+
+#borough {
+  font-family: "Amiko";
+  background-color: #f3f3f3;
+  width: 29%;
+  margin-right: 10%;
+  margin-bottom: 1%;
+  float: right;
+  height: auto;
+}
+
+#linechart,
+#stacked {
+  font-family: "Amiko";
+  background-color: #f3f3f3;
+  width: 80%;
+  margin: auto;
+  margin-bottom: 1%;
+}
+
+#pieChart {
+  font-family: "Amiko";
+  background-color: #f3f3f3;
+  width: 39%;
+  margin-left: 10%;;
+  margin-bottom: 1%;
+  display: inline-block;
+}
+
+#pieChart2 {
+  font-family: "Amiko";
+  background-color: #f3f3f3;
+  width: 39%;
+  margin-right: 10%;;
+  margin-bottom: 1%;
+  float: right;
+}
+
+#title {
+  background-color: #282C34;
+  font-family: "Amiko";
+  color: #fff;
+  padding: 2%;
+}
+
+#titleb {
+  background-color: #282C34;
+  font-family: "Amiko";
+  color: #fff;
+  padding: 12px;
+
+}
+
+#divfooter {
+  float: right;
+  color: gray;
+  font-size: .75vw;
+}
+
+/* pie chart styling */
+.pie {
+  margin-left: 20px;
+}
+
+
+.legend {
+  float: right;
+  font-family: "Amiko";
+  font-size: 1.1vw;
+}
+
+.pie text {
+  font-family: "Amiko";
+  fill: #000;
+}
+
+.pie .name-text{
+  font-size: .8em;
+}
+
+.pie .value-text{
+  font-size: 3em;
+}
+
+
+/* Borough Legend */
+
+#bubblelegend{
+    background-color: #f3f3f3;
+    margin-bottom: 0;
+}
+
+.bborough {
+  margin: 0;
+  font-family: "Amiko";
+}
+
+
+/* Bubble Chart Legend */
+
+
+.race {
+    margin: 0 !important;
+    font-family: "Amiko";
+    margin-right: .5em;
+}
+.key-dot {
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    margin-right: .2em;
+    border-radius: 50%;
+    bottom: 0;
+}
+
+.black { background: #1b9e77;}
+.latino { background: #D95F02;}
+.white { background: #7570b3;}
+.asian { background: #e7298a;}
+.multi { background: #66a61e; }
+.other { background: #e6ab02;}
+
+
+#bubblechart {
+  background-color: #f3f3f3;
+  width: 80%;
+  margin: auto;
+  margin-bottom: 0;
+}
+
+#bubblelegend{
+    overflow:hidden;
+    background-color: #f3f3f3;
+    margin: auto;
+    margin-top: 0;
+    width: 80%;
+}
+
+.blegend {
+  margin: .5em;
+  float: left;
+}
+
+/* Bubble Chart Tool Tip */
+.tooltipbub {
+  font-family: "Amiko";
+  background-color: rgb(255,255,255);
+  padding: 5px;
+  opacity: 0.5;
+  position: absolute;
+  pointer-events: none;
+}

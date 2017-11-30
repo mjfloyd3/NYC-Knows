@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>
+    Interactive Map
+    </title>
+    <link rel="stylesheet" href="css/intmap.css"/>
+    <!--Leaflet-->
+    <link rel="stylesheet" href="leaflet/leaflet.css"/>
+    <script src="leaflet/leaflet.js"></script>
+    <script src="data/uhfbaselayer.geojson"></script>
+</head>
+<body>
+  <h1>interactive map</h1>
+  <div id=""></div>
+  <script>
+
+  var hoodsLayer;
+
+    function highlightFeature(e){
+      var layer = e.target;
+      layer.setStyle(
+        {
+        weight: .5,
+        fillColor: 'grey',
+        fillOpacity: 0.7
+      }
+      )
+      info.update(layer.feature.properties);
+    };
+    function resetHighlight(e){
+      hoodsLayer.resetStyle(e.target);
+      info.update();
+    }
+
+    function zoomToFeature(e){
+      intMap.fitBounds(e.target.getBounds());
+    }
+
+    function hoodsOnEachFeature(feature, layer){
+      layer.on(
+        {
+          mouseover : highlightFeature,
+          mouseout : resetHighlight,
+          click : zoomToFeature
+        }
+      );
+    }
+
+
+    function getHoodColor(PLWHA_UHF_PLWHA){
+      if(PLWHA_UHF_PLWHA > 5500){
+        return '#7a0177';
+      }else if(PLWHA_UHF_PLWHA < 5499 && PLWHA_UHF_PLWHA > 3000){
+        return '#c51b8a';
+      }else if (PLWHA_UHF_PLWHA < 3999 && PLWHA_UHF_PLWHA > 2200){
+        return '#f768a1';
+      }else if (PLWHA_UHF_PLWHA <2199 && PLWHA_UHF_PLWHA > 800){
+        return '#fbb4b9'
+      }
+      else{
+        return '#feebe2';
+      }
+    }
+
+
+  function hoodsStyle(feature){
+    return {
+      fillColor: getHoodColor(feature.properties.PLWHA_UHF_PLWHA),
+      weight: 1,
+      opacity: .5,
+      color: 'white',
+      dashArray: 1,
+      fillOpacity: 0.7
+    }
+  }
+
+  var intMap=L.map('intMap').setView([40.730610, -73.935242], 8);
+  var hoodsLayer = L.geoJSON(
+    hoods,
+    {
+      style : hoodsStyle,
+      onEachFeature : hoodsOnEachFeature
+    }
+  ).addTo(intMap);
+  intMap.fitBounds(hoodsLayer.getBounds());
+
+  var info = L.control();
+  info.onAdd = function (intMap) {
+    this._div = L.DomUtil.create('div', 'info');
+    this.update();
+    return this._div;
+  };
+
+  // Edit info box text and variables (such as props.density2010) to match those in your GeoJSON data
+  info.update = function (props) {
+    this._div.innerHTML = '<b>People living with HIV/AIDS <br />by UHF Boundaries</b><br />' +  (props ?
+      '<b>' + props.UHF_NEIGH + ' '+'</b>' + '(' + props.BOROUGH + ')' + '<br />' + props.PLWHA_UHF_PLWHA + ' (' + props.PLWHA_UHF_Percent + '% of population)'
+      : 'Hover over a Neighborhood');
+  };
+  info.addTo(intMap);
+
+  </script>
+</body>
+</html>

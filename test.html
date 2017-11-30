@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+     <title></title>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" href="leaflet/leaflet.css">
+<script src="leaflet/leaflet.js"></script>
+<script src="intmap.js"></script>
+<script src="data/UHFbaselayer.geojson"></script>
+<!--FONTS -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Libre+Franklin:400,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Amiko:400,700" rel="stylesheet">
+<link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+<link href="css/m_style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://d3js.org/d3-force.v1.min.js"></script>
+<script src="https://d3js.org/d3-color.v1.min.js"></script>
+<script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+</head>
+
+<nav class="white" role="navigation">
+  <div class="nav-wrapper container">
+    <a id="logo-container" href="#" class="brand-logo">NYC Knows</a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="#">My Nearest Options</a></li>
+      <li><a href="/test.html">Explore the Data</a></li>
+      <li><a href="/resources.html">Community Resources</a></li>
+    </ul>
+  </nav>
+
+<body>
+
+<div id="interactivemap"><div id="title">People living with HIV/AIDS, by UHF Neighborhood, New York City</div><div id="intMap"><div id="divfooter"></div></div></div>
+<div id="borough"><div id="titleb">Prevalence Rate by Borough</div>
+
+<div id="boroughlegend">
+     <div class="boroughlegend"> <p class="bborough"><span class="key-dot Bronx"></span>Bronx</p> </div>
+     <div class="boroughlegend"> <p class="bborough"><span class="key-dot Brooklyn"></span>Brooklyn</p> </div>
+     <div class="boroughlegend"> <p class="bborough"><span class="key-dot Manhattan"></span>Manhattan</p> </div>
+     <div class="boroughlegend"> <p class="bborough"><span class="key-dot Queens"></span>Queens</p> </div>
+     <div class="boroughlegend"> <p class="bborough"><span class="key-dot StatenIsland"></span>Staten Island</p> </div>
+</div>
+
+
+</div>
+<div id="linechart"><div id="title">HIV/AIDS Trends, 1980 - 2015, New York City</div><div id="divfooter">Source: NYC Dept of Health</div></div>
+<div id="stacked"><div id="title">People living with HIV/AIDS, 1980 - 2015, New York City</div><div id="divfooter">Source: NYC Dept of Health</div></div>
+<div id="pieChart"><div id="title">Transmission Risks, 2015, New York City</div></div>
+<div id="pieChart2"><div id="title">People living with HIV/AIDS, By Gender, New York City</div></div>
+<div id="bubblechart"><div id="title">Racial Makeup of NYC General Population vs People living with HIV/AIDS</div><center><button id="byyear">General Population</button>
+<button id="combine">Combine</button></div></center>
+
+  <div id="bubblelegend">
+       <div class="blegend"> <p class="race"><span class="key-dot black"></span>Black</p> </div>
+       <div class="blegend"> <p class="race"><span class="key-dot latino"></span>Latino/Hispanic</p> </div>
+       <div class="blegend"> <p class="race"><span class="key-dot white"></span>White</p> </div>
+       <div class="blegend"> <p class="race"><span class="key-dot asian"></span>Asian/Pacific Islander</p> </div>
+       <div class="blegend"> <p class="race"><span class="key-dot multi"></span>Multiracial</p> </div>
+       <div class="blegend"> <p class="race"><span class="key-dot other"></span>Other/Unknown</p> </div>
+</div>
+
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
+<script src="borough.js"></script>
+<script src="linecharttest2.js"></script>
+<script src="living.js"></script>
+<script src="pieChart.js"></script>
+<script src="pieChart2.js"></script>
+<script src="bubbles.js"></script>
+</html>

@@ -1,0 +1,23 @@
+html {
+  padding: 0;
+  margin: 0;
+}
+
+.intmapcontainer {
+  height: 600px;
+  width: 66%;
+  
+}
+
+#intMap  {
+  height : 600px;
+  width: 66%;
+}
+
+.mapInfo {
+  background: white;
+  background: rgba(255,255,255,0.8);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  padding: 0 5px 0 5px;
+}

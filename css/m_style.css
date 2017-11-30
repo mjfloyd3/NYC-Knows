@@ -1,0 +1,101 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+nav ul a {
+  color: #444;
+}
+
+nav .brand-logo {
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 700;
+  font-size: 2.5vw;
+  color: #444;
+}
+
+h1 {
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 700;
+  font-size: 4vw;
+  color: #e1715b;
+  text-align: center;
+
+}
+
+h5.header.col.s12.light {
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 400;
+  font-size: 2.9vw;
+  color: #fff;
+
+}
+
+p {
+  line-height: 2rem;
+}
+
+.center {
+  font-family: "Amiko", sans-serif;
+}
+
+li {
+  font-family: "Amiko", sans-serif;
+}
+
+.button-collapse {
+  color: #26a69a;
+}
+
+.parallax-container1 {
+  min-height: 380px;
+  line-height: 0;
+  height: auto;
+  background-color: #FDAB53;
+}
+
+.parallax-container {
+  min-height: 480px;
+  line-height: 0;
+  height: auto;
+
+}
+
+.parallax-container {
+  min-height: 500px;
+  line-height: 0;
+}
+
+  .parallax-container .section {
+    width: 100%;
+  }
+
+@media only screen and (max-width : 992px) {
+  .parallax-container .section {
+    position: absolute;
+    top: 40%;
+  }
+  #index-banner .section {
+    top: 10%;
+  }
+}
+
+@media only screen and (max-width : 600px) {
+  #index-banner .section {
+    top: 0;
+  }
+}
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+  font-size: inherit;
+}
+
+footer.page-footer {
+  margin: 0;
+}
