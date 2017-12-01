@@ -1,8 +1,8 @@
 (function() {
   // create the svg
 
-var margin = {top: 25, right: 0, bottom: 30, left: 80},
-    width = 900 - margin.left - margin.right,
+var margin = {top: 25, right: 0, bottom: 30, left: 60},
+    width = 930 - margin.left - margin.right,
     height = 400 - margin.top - margin.bottom;
 
 // set x scale
@@ -85,10 +85,10 @@ d3.csv("living.csv", function(d, i, columns) {
     .selectAll("g")
     .data(keys.slice().reverse())
     .enter().append("g")
-      .attr("transform", function(d, i) { return "translate(0," + i * 25 + ")"; });
+      .attr("transform", function(d, i) { return "translate(0," + i * 25 +")"; });
 
   legend.append("rect")
-      .attr("x", width - 10)
+      .attr("x", width - 15)
       .attr("width", 19)
       .attr("height", 19)
       .attr("fill", z);
@@ -96,7 +96,7 @@ d3.csv("living.csv", function(d, i, columns) {
   legend.append("text")
       .attr("x", width + 80)
       .attr("y", 10)
-      .attr("dy", "0.32em")
+      .attr("dy", "0.40em")
       .text(function(d) { return d; });
 });
 

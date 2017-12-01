@@ -4,6 +4,8 @@ var width = 900,
 
 var svg = d3.select("#bubblechart")
 .append("svg")
+.style("margin-left", "8%")
+.style("margin-top", "1%")
 .attr("height", height)
 .attr("width", width)
 .append("g")
@@ -11,20 +13,20 @@ var svg = d3.select("#bubblechart")
 
 var toolTip = d3.select('body').append('div').attr('class', 'tooltipbub').style('opacity', 0)
 
-var radiusScale = d3.scaleSqrt().domain(["0", "43.96"]).range([5,80])
+var radiusScale = d3.scaleSqrt().domain(["0", "43.96"]).range([15,80])
 
 var forceXSeparate = d3.forceX(function(d) {
   if(d.category === 'GEN') {
-  return 300
+  return 200
 } else if (d.category === 'PLWHA') {
-  return 700
+  return 650
 }
 }).strength(0.05)
 
 var forceXCombine = d3.forceX(width / 2).strength(0.05)
 
 var forceCollide = d3.forceCollide(function(d) {
-  return radiusScale(d.PLWHA) + 1
+  return radiusScale(d.PLWHA) + 2
   })
 
 var simulation = d3.forceSimulation()
@@ -47,17 +49,17 @@ function ready (error, datapoints) {
     })
   .attr("fill", function (d) {
             if (d.race === "Other") {
-                return "#EAC435"
+                return "#66c2a5"
             } else if (d.race === "Multiracial") {
-                return "#FA7921"
+                return "#fc8d62"
             } else if (d.race == "Asian") {
-                return "#E40066"
+                return "#8da0cb"
             } else if (d.race == "White") {
-                return "#03CEA4"
+                return "#e78ac3"
             } else if (d.race == "Latino") {
-                return "#345995"
+                return "#a6d854"
             } else if (d.race == "Black") {
-                return "#1b9e77"
+                return "#ffd92f"
               }
                   })
     .on ('mouseover', function (d) {

@@ -6,37 +6,52 @@
  * Made By MaterializeCSS.com
  */
 
+nav {
+  background: #345995;
+;
+
+}
 nav ul a {
-  color: #444;
+  color: #03CEA4;
+}
+
+a {
+  color: #ff7961;
 }
 
 nav .brand-logo {
   font-family: "Libre Franklin", sans-serif;
   font-weight: 700;
-  font-size: 2.5vw;
-  color: #444;
+  font-size: 2.7vw;
+  color: #ff8a65;
 }
 
 h1 {
   font-family: "Libre Franklin", sans-serif;
   font-weight: 700;
   font-size: 4vw;
-  color: #e1715b;
+  color: tomato;
   text-align: center;
 
 }
 
 h5.header.col.s12.light {
   font-family: "Libre Franklin", sans-serif;
-  font-weight: 400;
-  font-size: 2.9vw;
+  font-weight: 700;
+  font-size: 3.5vw;
   color: #fff;
-
 }
 
-p {
+h5.header.col.s12.light1 {
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 700;
+  font-size: 3.5vw;
+  color: #ff7961;
+}
+
+/*p {
   line-height: 2rem;
-}
+}*/
 
 .center {
   font-family: "Amiko", sans-serif;
@@ -50,11 +65,15 @@ li {
   color: #26a69a;
 }
 
+img.background1 {
+  opacity: 0.8;
+}
+
 .parallax-container1 {
   min-height: 380px;
   line-height: 0;
   height: auto;
-  background-color: #FDAB53;
+  background-color: #fff;
 }
 
 .parallax-container {

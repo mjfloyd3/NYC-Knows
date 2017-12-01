@@ -1,6 +1,6 @@
-borough,number
-Bronx,1.07
-Brooklyn,0.59
-Manhattan,1.025
-Queens,0.40
-StatenIsland,0.26
+borough,number,no
+Bronx,1.07,29803
+Brooklyn,0.59,29738
+Manhattan,1.025,32476
+Queens,0.40,18307
+StatenIsland,0.26,2398

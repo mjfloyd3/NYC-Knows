@@ -24,35 +24,48 @@
 
 <nav class="white" role="navigation">
   <div class="nav-wrapper container">
-    <a id="logo-container" href="#" class="brand-logo">NYC Knows</a>
+    <a id="logo-container" href="/index.html" class="brand-logo">NYC knows</a>
     <ul class="right hide-on-med-and-down">
-      <li><a href="#">My Nearest Options</a></li>
+      <li><a href="/locationsearch.html">My Nearest Options</a></li>
       <li><a href="/test.html">Explore the Data</a></li>
-      <li><a href="/resources.html">Community Resources</a></li>
+      <li><a href="/grid.html">Community Resources</a></li>
     </ul>
   </nav>
 
 <body>
-
+<div id="titlehead"><h5 class="dataheading"><center>Local Statistics: New York City</center></h5></div>
+<div id="dataintro">
+<div id="highlights"<bold>Highlights:</bold></div>
+  <ul>
+  <li>+   Number of HIV diagnoses occuring in 2016: <strong>2,229</strong></li>
+  <li>+   In 2016, the HIV diagnosis rate among Black females was 2.7 times higher than the rate among Latina/Hispanic females and over 14 times higher than the rate among White females</li>
+  <li>+   The number of new HIV diagnoses reported in NYC from 2001 - 2016 decreased overall and by gender, race, borough and transmission risk</li>
+  </ul>
+ <div id="foot">Sources: DATAUSA, NYC Dept of Health, US Census and American Community Survey</div>
+</div>
 <div id="interactivemap"><div id="title">People living with HIV/AIDS, by UHF Neighborhood, New York City</div><div id="intMap"><div id="divfooter"></div></div></div>
 <div id="borough"><div id="titleb">Prevalence Rate by Borough</div>
 
-<div id="boroughlegend">
-     <div class="boroughlegend"> <p class="bborough"><span class="key-dot Bronx"></span>Bronx</p> </div>
-     <div class="boroughlegend"> <p class="bborough"><span class="key-dot Brooklyn"></span>Brooklyn</p> </div>
-     <div class="boroughlegend"> <p class="bborough"><span class="key-dot Manhattan"></span>Manhattan</p> </div>
-     <div class="boroughlegend"> <p class="bborough"><span class="key-dot Queens"></span>Queens</p> </div>
-     <div class="boroughlegend"> <p class="bborough"><span class="key-dot StatenIsland"></span>Staten Island</p> </div>
+<div id="boroughlegendcontain">
+  <div id="boroughlegend">
+     <div class="boroughlegend"> <p class="bborough"><span class="key-dotb bronx"></span>Bronx (1.07%)</p> </div>
+     <div class="boroughlegend"> <p class="bborough"><span class="key-dotb brooklyn"></span>Brooklyn (0.59%)</p> </div>
+     <div class="boroughlegend"> <p class="bborough"><span class="key-dotb manhattan"></span>Manhattan (1.03%)</p> </div>
+     <div class="boroughlegend"> <p class="bborough"><span class="key-dotb queens"></span>Queens (0.40%)</p> </div>
+     <div class="boroughlegend"> <p class="bborough"><span class="key-dotb statenisland"></span>Staten Island (0.26%)</p> </div>
 </div>
-
-
+</div>
 </div>
 <div id="linechart"><div id="title">HIV/AIDS Trends, 1980 - 2015, New York City</div><div id="divfooter">Source: NYC Dept of Health</div></div>
 <div id="stacked"><div id="title">People living with HIV/AIDS, 1980 - 2015, New York City</div><div id="divfooter">Source: NYC Dept of Health</div></div>
 <div id="pieChart"><div id="title">Transmission Risks, 2015, New York City</div></div>
 <div id="pieChart2"><div id="title">People living with HIV/AIDS, By Gender, New York City</div></div>
-<div id="bubblechart"><div id="title">Racial Makeup of NYC General Population vs People living with HIV/AIDS</div><center><button id="byyear">General Population</button>
-<button id="combine">Combine</button></div></center>
+<div id="bubblechart"><div id="title">Racial Makeup of NYC General Population vs People living with HIV/AIDS</div>
+
+<center><button id="byyear">General Population</button>
+<button id="combine">Combine</button></center>
+
+</div>
 
   <div id="bubblelegend">
        <div class="blegend"> <p class="race"><span class="key-dot black"></span>Black</p> </div>
@@ -62,6 +75,7 @@
        <div class="blegend"> <p class="race"><span class="key-dot multi"></span>Multiracial</p> </div>
        <div class="blegend"> <p class="race"><span class="key-dot other"></span>Other/Unknown</p> </div>
 </div>
+
 
 
 </body>
