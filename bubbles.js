@@ -23,7 +23,7 @@ var forceXSeparate = d3.forceX(function(d) {
 }
 }).strength(0.05)
 
-var forceXCombine = d3.forceX(width / 2).strength(0.05)
+var forceXCombine = d3.forceX(width / 2).strength(0.04)
 
 var forceCollide = d3.forceCollide(function(d) {
   return radiusScale(d.PLWHA) + 2
@@ -105,5 +105,15 @@ function ready (error, datapoints) {
         })
   }
 }
-
+$(document).ready(function(){
+    $("#combine").click(function(){
+        $(".onclick").hide(1000);
+      });
+    $("#byyear").click(function(){
+        $(".onclick").show(1000);
+    });
+});
+$('#byyear').click(function(){
+    $('.onclick').css('visibility', 'visible');
+});
 })();

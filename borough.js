@@ -54,13 +54,12 @@ function ready (error, datapoints) {
 
     .on ('mouseover', function (d) {
       div.style("display", "inline")
-      div.style("stoke", "5px")
     })
     .on('mousemove', function (d) {
           toolTip.transition()
           .duration(200)
           .style('opacity', 0.9)
-          toolTip.html(`${d.borough}<br/>${d.no}<br/>${d.number}%`)
+          toolTip.html(`<b>${d.borough}</b><br/>${d.no}<br/>${d.number}%`)
           .style('left', (d3.event.pageX + 10) + 'px')
           .style('top', (d3.event.pageY + 10) + 'px')
         })

@@ -64,6 +64,20 @@
 
 <center><button id="byyear">General Population</button>
 <button id="combine">Combine</button></center>
+<style>
+  p.onclick {
+    visibility: hidden;
+    display: inline-block;
+    font-family: "Amiko";
+    font-size: 1.2vw;
+    font-weight: 700;
+    margin-left: 16%;
+    margin-bottom: 0;
+    text-align: right;
+  }
+  </style>
+
+<p class="onclick">City Population by Race/Ethnicity:</p> <p class="onclick">Persons living with HIV/AIDS by Race/Ethnicity:</p>
 
 </div>
 
@@ -75,8 +89,6 @@
        <div class="blegend"> <p class="race"><span class="key-dot multi"></span>Multiracial</p> </div>
        <div class="blegend"> <p class="race"><span class="key-dot other"></span>Other/Unknown</p> </div>
 </div>
-
-
 
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>

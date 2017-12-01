@@ -88,13 +88,13 @@ d3.csv("living.csv", function(d, i, columns) {
       .attr("transform", function(d, i) { return "translate(0," + i * 25 +")"; });
 
   legend.append("rect")
-      .attr("x", width - 15)
+      .attr("x", width - 25)
       .attr("width", 19)
       .attr("height", 19)
       .attr("fill", z);
 
   legend.append("text")
-      .attr("x", width + 80)
+      .attr("x", width + 70)
       .attr("y", 10)
       .attr("dy", "0.40em")
       .text(function(d) { return d; });
@@ -109,7 +109,7 @@ d3.csv("living.csv", function(d, i, columns) {
     .attr("width", 60)
     .attr("height", 30)
     .attr("fill", "white")
-    .style("opacity", 1);
+    .style("opacity", .7);
 
   tooltip.append("text")
     .attr("x", 30)

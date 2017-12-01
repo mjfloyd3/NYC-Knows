@@ -364,8 +364,11 @@ h2.findlocation {
 }
 
 .rate {
-  border-style: solid;
-  border-color: teal;
+}
+
+.rate:hover {
+  stroke-width: 2px;
+  stroke: teal;
 }
 
 /*tooltip for borough chart */
@@ -376,6 +379,10 @@ h2.findlocation {
   opacity: 0.5;
   position: absolute;
   pointer-events: none;
+}
+
+.tooltip :hover {
+  fill: 2px;
 }
 
 
