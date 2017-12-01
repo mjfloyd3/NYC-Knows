@@ -8,6 +8,22 @@
   color: #282C34;
 }
 
+#emailformoption {
+  width: 100%;
+  padding: 3%;
+  margin: 1%;
+  font-size: 2vw;
+  background: #ffd149;
+}
+
+a.emaillinkoption {
+  font-size: 2vw;
+  color: steelblue;
+}
+a.emaillinkoption:hover {
+  text-decoration: underline;
+}
+
 h2.gridtitle {
   font-family: "Libre Franklin";
   font-weight: 700;
