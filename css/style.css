@@ -4,26 +4,31 @@ html {
 
 nav {
   background-color: #ffbb93;
-  width: 80%;
-  height: 56px;
-  line-height: 56px;
-  margin-bottom: 1%
-
 }
 
 nav ul a {
   color: #444;
 }
 
-nav .brand-logo {
+nav a {text-decoration:none;}
+nav .brand-logo-new {
   font-family: "Libre Franklin", sans-serif;
   font-weight: 700;
-  font-size: 2.5vw;
-  color: #7a7cff;
+  font-size: 2rem;
+  color: #ff7961;
 }
 
-body {
-  background-color: rgba(101, 73, 156, .7);
+.navbar-brand:hover {
+  color: #ff7961 !important;
+}
+
+a.nav-link {
+  color:#03CEA4;
+}
+
+a.nav-link:hover {
+  text-decoration: underline;
+  color: #03CEA4;
 }
 
 .mapInfo {
@@ -108,21 +113,17 @@ h5.dataheading {
 }
 
 h2.findlocation {
-  font-family: "Libre Franklin";
-  font-weight: 700;
-  color: #f3f3f3;
-  margin: 0;
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #967BB6;
 }
 
 #promptsearch {
-  float: right;
-  width: 55%;
-  font-family: "Amiko";
-  font-weight: 700;
-  color: #fff;
-  padding: 1%;
-  margin-right: 14%;
-  text-align: right;
+  font-family: "Amiko", Arial, sans-serif;;
+  padding-left: 10px;
+  margin-top: 40px;
+  margin-bottom: 30px;
 }
 
 #dataintro ul {
