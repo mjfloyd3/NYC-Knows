@@ -1,11 +1,9 @@
 {
-  "name": "my-static-site",
-  "version": "1.0.0",
-  "description": "This will load any static html site",
+  "name": "nyc-knows",
+  "version": "2.0.0",
+  "description": "Find free, walk-in HIV testing in New York City and explore local HIV/AIDS data",
+  "private": true,
   "scripts": {
-    "start": "harp server --port $PORT"
-  },
-  "dependencies": {
-    "harp": "*"
+    "start": "npx --yes serve ."
   }
 }

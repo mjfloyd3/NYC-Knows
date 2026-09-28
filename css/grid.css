@@ -1,70 +1,98 @@
-
 #resourcesheading {
   width: 100%;
   margin: auto;
-  padding: 1%;
+  padding: 1% 16px;
   background-color: #f3f3f3;
-  font-family: "Amiko";
+  font-family: "Amiko", sans-serif;
   color: #282C34;
 }
 
+.gridheading {
+  font-size: clamp(0.95rem, 1.5vw, 1.4rem);
+  margin: 0.75rem 0;
+}
+
 #emailformoption {
-  width: 100%;
+  margin: 16px;
   padding: 3%;
-  margin: 1%;
-  font-size: 2vw;
   background: #ffd149;
-  font-family: "Libre Franklin";
+  font-family: "Libre Franklin", sans-serif;
+  font-size: clamp(1.05rem, 2vw, 1.75rem);
+  text-align: center;
+}
+
+#emailformoption p {
+  margin: 0;
 }
 
 a.emaillinkoption {
-  font-size: 2vw;
   color: steelblue;
 }
+
 a.emaillinkoption:hover {
   text-decoration: underline;
 }
 
-h2.gridtitle {
-  font-family: "Libre Franklin";
+h1.gridtitle {
+  font-family: "Libre Franklin", sans-serif;
   font-weight: 700;
-  font-size: 3vw;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
   color: #f3f3f3;
   width: 100%;
   background: #282C34;
-  margin-top: 1%;
-  margin: auto;
+  margin: 0;
   padding: 2%;
   text-align: center;
 }
 
-h3.gridheading {
-  font-size: 1.5vw;
-  margin-top: 2%;
-
-}
-
 #grid {
-    line-height: 0;
-    -webkit-column-count: 4;
-    -webkit-column-gap: 1px;
-    -moz-column-count: 3;
-    -moz-column-gap: 10px;
-    column-count: 4;
-    column-gap: 0px;
+  line-height: 0;
+  column-count: 4;
+  column-gap: 0;
 }
-#grid img {
-    width: 100% !important;
-    height: auto;
-    margin-bottom: 0px;
-    margin: auto;
+
+@media (max-width: 991px) {
+  #grid { column-count: 3; }
+}
+
+@media (max-width: 575px) {
+  #grid { column-count: 2; }
 }
 
 .imgcontainer {
-    position: relative;
+  position: relative;
+  display: block;
+  break-inside: avoid;
 }
 
+#grid img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 
+/* Stand-in tile for a resource that has no image */
+.imgcontainer-text {
+  aspect-ratio: 1;
+  background: #ff7961;
+  text-decoration: none;
+}
+
+.tile-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  text-align: center;
+  line-height: 1.2;
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1rem, 2vw, 1.75rem);
+  color: #fff;
+  transition: .5s ease;
+}
 
 .image {
   opacity: 1;
@@ -79,27 +107,51 @@ h3.gridheading {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%)
+  width: 100%;
+  text-align: center;
+  line-height: 1.2;
 }
 
-.imgcontainer:hover .image {
+.imgcontainer:hover .image,
+.imgcontainer:focus-visible .image,
+.imgcontainer:hover .tile-text,
+.imgcontainer:focus-visible .tile-text {
   filter: brightness(40%);
 }
 
-.imgcontainer:hover .middle {
+.imgcontainer:hover .middle,
+.imgcontainer:focus-visible .middle {
   opacity: 1;
 }
 
 .img_description {
+  display: block;
   color: white;
-  font-size: 3.5vw;
-  padding: 16px 32px;
-  font-family: "Libre Franklin";
+  font-size: clamp(1.1rem, 3.5vw, 3rem);
+  padding: 16px;
+  font-family: "Libre Franklin", sans-serif;
   font-weight: 700;
   text-decoration: none;
 }
 
-#contactformKNOW {
-  width: 100%;
-  position: absolute;
+/* Touch screens have no hover, so always show the label on a darkened strip */
+@media (hover: none) {
+  .middle {
+    opacity: 1;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: none;
+    background: rgba(40, 44, 52, 0.75);
+  }
+
+  .img_description {
+    padding: 6px 10px;
+    font-size: 0.95rem;
+  }
+
+  .imgcontainer-text .tile-text {
+    padding-bottom: 40px;
+  }
 }

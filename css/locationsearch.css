@@ -1,0 +1,159 @@
+/* Find a location page */
+
+#promptsearch p {
+  margin: 0 0 0 5px;
+  color: #282C34;
+}
+
+.search-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+  max-width: 640px;
+}
+
+.search-form #pac-input {
+  flex: 1 1 220px;
+  min-width: 0;
+  height: 44px;
+  padding: 0 12px;
+  font-family: "Amiko", sans-serif;
+  font-size: 17px; /* 16px+ stops iOS from zooming on focus */
+  border: 2px solid #345995;
+  border-radius: 4px;
+  outline: none;
+}
+
+.search-form #pac-input:focus {
+  border-color: #03CEA4;
+}
+
+.search-btn,
+.locate-btn {
+  height: 44px;
+  padding: 0 16px;
+  border: none;
+  border-radius: 4px;
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+}
+
+.search-btn { background: #ff7961; }
+.locate-btn { background: #345995; }
+.search-btn:hover { background: #f4604a; }
+.locate-btn:hover { background: #2a4a7d; }
+
+.search-status {
+  min-height: 1.5em;
+  margin-top: 8px !important;
+  font-size: 0.9rem;
+  color: #666 !important;
+}
+
+#map {
+  height: 75vh;
+  min-height: 420px;
+  border-radius: 4px;
+  z-index: 0;
+}
+
+.results-heading {
+  font-family: "Amiko", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #03CEA4;
+  margin-bottom: 15px;
+}
+
+#infos {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 75vh;
+  overflow-y: auto;
+  font-family: "Amiko", sans-serif;
+  background-color: rgba(255, 255, 255, .6);
+}
+
+#infos .site {
+  position: relative;
+  padding: 10px 5px 12px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+
+#infos .site:hover {
+  background: #f3f3f3;
+}
+
+#infos p,
+.site-popup p {
+  margin: 0 0 2px;
+  color: #282C34;
+}
+
+#infos .empty {
+  padding: 10px 5px;
+  color: #666;
+}
+
+.site-name {
+  font-weight: 700;
+  padding-right: 3.5em;
+}
+
+.site-distance {
+  position: absolute;
+  top: 10px;
+  right: 5px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #345995;
+}
+
+.site-hours {
+  font-size: 0.9rem;
+  color: #555 !important;
+}
+
+.site-links a {
+  display: inline-block;
+  margin-right: 14px;
+  padding: 4px 0;
+}
+
+.site-popup {
+  font-family: "Amiko", sans-serif;
+}
+
+.hours-table {
+  margin: 6px 0;
+  font-size: 0.85rem;
+}
+
+.hours-table th {
+  padding-right: 10px;
+  vertical-align: top;
+}
+
+.data-note {
+  margin: 24px 0 40px;
+  font-family: "Amiko", sans-serif;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+@media (max-width: 991px) {
+  #map {
+    height: 55vh;
+    min-height: 320px;
+  }
+
+  #infos {
+    max-height: none;
+    overflow: visible;
+  }
+}

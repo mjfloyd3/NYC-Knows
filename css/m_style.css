@@ -26,26 +26,26 @@ nav .brand-logo {
   color: #ff8a65;
 }
 
-h1 {
+#index-banner h1 {
   font-family: "Libre Franklin", sans-serif;
   font-weight: 700;
-  font-size: 4vw;
+  font-size: clamp(2rem, 4vw, 3.5rem);
   color: tomato;
   text-align: center;
 
 }
 
-h5.header.col.s12.light {
+h2.header.col.s12.light {
   font-family: "Libre Franklin", sans-serif;
   font-weight: 700;
-  font-size: 3.5vw;
+  font-size: clamp(1.75rem, 3.5vw, 3rem);
   color: #fff;
 }
 
-h5.header.col.s12.light1 {
+h2.header.col.s12.light1 {
   font-family: "Libre Franklin", sans-serif;
   font-weight: 700;
-  font-size: 3.5vw;
+  font-size: clamp(1.75rem, 3.5vw, 3rem);
   color: #ffd149;
 }
 
@@ -70,10 +70,67 @@ img.background1 {
 }
 
 .parallax-container1 {
-  min-height: 380px;
-  line-height: 0;
-  height: auto;
+  padding: 48px 0 24px;
   background-color: #fff;
+}
+
+.zip-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 560px;
+  margin: 24px auto 0;
+}
+
+/* Materialize styles every input, so these are scoped tightly to win */
+.zip-search input[type=search]#pac-input {
+  flex: 1;
+  height: 48px;
+  margin: 0;
+  padding: 0 12px;
+  font-family: "Amiko", sans-serif;
+  font-size: 17px;
+  border: 2px solid #345995;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background: #fff;
+}
+
+.zip-search input[type=search]#pac-input:focus {
+  border-color: #03CEA4;
+  box-shadow: none;
+}
+
+.zip-search button {
+  flex: none;
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 4px;
+  background: #ff7961;
+  color: #fff;
+  cursor: pointer;
+}
+
+.zip-search button .material-icons {
+  font-size: 28px;
+  line-height: 48px;
+}
+
+/* Materialize gives <nav> a fixed height that clips Bootstrap's mobile menu */
+nav.navbar {
+  height: auto;
+  line-height: normal;
+  box-shadow: none;
+}
+
+nav.navbar ul li {
+  float: none;
+}
+
+nav.navbar ul a {
+  display: block;
+  font-size: 1rem;
 }
 
 .parallax-container {
@@ -96,15 +153,6 @@ img.background1 {
   .parallax-container .section {
     position: absolute;
     top: 40%;
-  }
-  #index-banner .section {
-    top: 10%;
-  }
-}
-
-@media only screen and (max-width : 600px) {
-  #index-banner .section {
-    top: 0;
   }
 }
 

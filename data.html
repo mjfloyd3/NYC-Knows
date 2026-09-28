@@ -1,109 +1,114 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-     <title></title>
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link rel="stylesheet" type="text/css" href="css/style.css">
-<link rel="stylesheet" href="leaflet/leaflet.css">
-<script src="leaflet/leaflet.js"></script>
-<script src="intmap.js"></script>
-<script src="data/UHFbaselayer.geojson"></script>
-<!--FONTS -->
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Libre+Franklin:400,700" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Amiko:400,700" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-<link href="css/m_style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-<script src="https://d3js.org/d3.v4.min.js"></script>
-<script src="https://d3js.org/d3-force.v1.min.js"></script>
-<script src="https://d3js.org/d3-color.v1.min.js"></script>
-<script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
-<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Explore the Data | NYC Knows</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <meta name="description" content="HIV/AIDS statistics for New York City: neighborhoods, boroughs, trends and demographics.">
+
+  <link href="https://fonts.googleapis.com/css?family=Amiko:400,700|Libre+Franklin:400,700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/m_style.css" rel="stylesheet">
 </head>
-
-<nav class="white navbar navbar-expand-lg mb-5" role="navigation">
-  <div class="container">
-    <a id="logo-container" href="index.html" class="navbar-brand brand-logo-new">NYC knows</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarToggler">
-      <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link" href="locationsearch.html">My Nearest Options</a></li>
-        <li class="nav-item"><a class="nav-link" href="data.html">Explore the Data</a></li>
-        <li class="nav-item"><a class="nav-link" href="grid.html">Community Resources</a></li>
-      </ul>
-    </div>
-</nav>
-
 <body>
+  <nav class="white navbar navbar-expand-lg navbar-dark mb-5" role="navigation">
+    <div class="container">
+      <a id="logo-container" href="index.html" class="navbar-brand brand-logo-new">NYC knows</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarToggler">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="locationsearch.html">My Nearest Options</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="data.html">Explore the Data</a></li>
+          <li class="nav-item"><a class="nav-link" href="grid.html">Community Resources</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-<div id="titlehead"><h5 class="dataheading"><center>Local Statistics: New York City</center></h5></div>
-<div id="dataintro">
-<div id="highlights"<bold>Highlights:</bold></div>
-  <ul>
-  <li>+   Number of HIV diagnoses occuring in 2016: <strong>2,229</strong></li>
-  <li>+   In 2016, the HIV diagnosis rate among Black females was 2.7 times higher than the rate among Latina/Hispanic females and over 14 times higher than the rate among White females</li>
-  <li>+   The number of new HIV diagnoses reported in NYC from 2001 - 2016 decreased overall and by gender, race, borough and transmission risk</li>
-  </ul>
- <div id="foot">Sources: DATAUSA, NYC Dept of Health, US Census and American Community Survey</div>
-</div>
-<div id="interactivemap"><div id="title">People living with HIV/AIDS, by UHF Neighborhood, New York City</div><div id="intMap"><div id="divfooter"></div></div></div>
-<div id="borough"><div id="titleb">Prevalence Rate by Borough</div>
+  <main class="data-page">
+    <section class="data-card data-wide" id="dataintro">
+      <h1 class="dataheading">Local Statistics: New York City</h1>
+      <div class="data-body">
+        <h2 id="highlights">Highlights:</h2>
+        <ul>
+          <li>New HIV diagnoses in 2022: <strong>1,439</strong>, down 57% from 3,379 in 2011</li>
+          <li>In 2022, Black New Yorkers were diagnosed with HIV at 6 times the rate of White New Yorkers (43.2 vs 7.1 per 100,000), and Latinx/Hispanic New Yorkers at over 4 times the rate</li>
+          <li>Men were diagnosed at 4 times the rate of women (35.8 vs 8.8 per 100,000)</li>
+          <li>Viral suppression among New Yorkers with HIV reached 84% in 2022, up from 71% in 2011</li>
+        </ul>
+        <p class="chart-source">Source: <a href="https://data.cityofnewyork.us/d/fju2-rdad" target="_blank" rel="noopener">NYC DOHMH HIV/AIDS Annual Report</a>, 2011 - 2022</p>
+      </div>
+    </section>
 
-<div id="boroughlegendcontain">
-  <div id="boroughlegend">
-     <div class="boroughlegend"> <p class="bborough"><span class="key-dotb bronx"></span>Bronx (1.07%)</p> </div>
-     <div class="boroughlegend"> <p class="bborough"><span class="key-dotb brooklyn"></span>Brooklyn (0.59%)</p> </div>
-     <div class="boroughlegend"> <p class="bborough"><span class="key-dotb manhattan"></span>Manhattan (1.03%)</p> </div>
-     <div class="boroughlegend"> <p class="bborough"><span class="key-dotb queens"></span>Queens (0.40%)</p> </div>
-     <div class="boroughlegend"> <p class="bborough"><span class="key-dotb statenisland"></span>Staten Island (0.26%)</p> </div>
-</div>
-</div>
-</div>
-<div id="linechart"><div id="title">HIV/AIDS Trends, 1980 - 2015, New York City</div><div id="divfooter">Source: NYC Dept of Health</div></div>
-<div id="stacked"><div id="title">People living with HIV/AIDS, 1980 - 2015, New York City</div><div id="divfooter">Source: NYC Dept of Health</div></div>
-<div id="pieChart"><div id="title">Transmission Risks, 2015, New York City</div></div>
-<div id="pieChart2"><div id="title">People living with HIV/AIDS, By Gender, New York City</div></div>
-<div id="bubblechart"><div id="title">Racial Makeup of NYC General Population vs People living with HIV/AIDS</div>
+    <section class="data-card data-map" id="interactivemap">
+      <h2 class="chart-title">HIV Prevalence by UHF Neighborhood, New York City, 2022</h2>
+      <div id="intMap"></div>
+      <p class="chart-source">Percent of residents living with diagnosed HIV. Source: <a href="https://data.cityofnewyork.us/d/fju2-rdad" target="_blank" rel="noopener">NYC DOHMH HIV/AIDS Annual Report</a></p>
+    </section>
 
-<center><button id="byyear">General Population</button>
-<button id="combine">Combine</button></center>
-<style>
-  p.onclick {
-    visibility: hidden;
-    display: inline-block;
-    font-family: "Amiko";
-    font-size: 1.2vw;
-    font-weight: 700;
-    margin-left: 16%;
-    margin-bottom: 0;
-    text-align: right;
-  }
-  </style>
+    <section class="data-card data-side" id="borough">
+      <h2 class="chart-title">Prevalence Rate by Borough, 2022</h2>
+      <div class="chart" id="borough-chart"></div>
+      <ul class="chart-legend" id="boroughlegend"></ul>
+      <p class="chart-source">Source: <a href="https://data.cityofnewyork.us/d/fju2-rdad" target="_blank" rel="noopener">NYC DOHMH HIV/AIDS Annual Report</a></p>
+    </section>
 
-<p class="onclick">City Population by Race/Ethnicity:</p> <p class="onclick">Persons living with HIV/AIDS by Race/Ethnicity:</p>
+    <section class="data-card data-wide" id="linechart">
+      <h2 class="chart-title">HIV/AIDS Trends, 1981 - 2022, New York City</h2>
+      <div class="chart" id="linechart-chart"></div>
+      <p class="chart-source">1981 - 2010: NYC Dept of Health surveillance data, compiled for this site in 2017. 2011 - 2022: <a href="https://data.cityofnewyork.us/d/fju2-rdad" target="_blank" rel="noopener">NYC DOHMH HIV/AIDS Annual Report</a> (no 2016 data). Deaths are shown through 2015 only; the city now reports deaths from all causes among people with HIV, which isn't comparable.</p>
+    </section>
 
-</div>
+    <section class="data-card data-wide" id="stacked">
+      <h2 class="chart-title">People living with HIV/AIDS, 1981 - 2015, New York City</h2>
+      <div class="chart" id="stacked-chart"></div>
+      <p class="chart-source">Source: NYC Dept of Health surveillance data, compiled for this site in 2017</p>
+    </section>
 
-  <div id="bubblelegend">
-       <div class="blegend"> <p class="race"><span class="key-dot black"></span>Black</p> </div>
-       <div class="blegend"> <p class="race"><span class="key-dot latino"></span>Latino/Hispanic</p> </div>
-       <div class="blegend"> <p class="race"><span class="key-dot white"></span>White</p> </div>
-       <div class="blegend"> <p class="race"><span class="key-dot asian"></span>Asian/Pacific Islander</p> </div>
-       <div class="blegend"> <p class="race"><span class="key-dot multi"></span>Multiracial</p> </div>
-       <div class="blegend"> <p class="race"><span class="key-dot other"></span>Other/Unknown</p> </div>
-</div>
+    <section class="data-card data-half" id="pieChart">
+      <h2 class="chart-title">New HIV Diagnoses by Transmission Risk, 2015</h2>
+      <div class="pie-wrap" id="pieChart-chart"></div>
+      <p class="chart-source">Source: NYC Dept of Health surveillance data, compiled for this site in 2017. The city's current open data doesn't break out transmission risk.</p>
+    </section>
 
+    <section class="data-card data-half" id="pieChart2">
+      <h2 class="chart-title">New HIV Diagnoses by Gender, 2022</h2>
+      <div class="pie-wrap" id="pieChart2-chart"></div>
+      <p class="chart-source">Source: <a href="https://data.cityofnewyork.us/d/fju2-rdad" target="_blank" rel="noopener">NYC DOHMH HIV/AIDS Annual Report</a>, which reports men and women only</p>
+    </section>
+
+    <section class="data-card data-wide" id="bubblechart">
+      <h2 class="chart-title">Racial Makeup of NYC Population vs New HIV Diagnoses, 2022</h2>
+      <div class="bubble-buttons" role="group" aria-label="Bubble chart view">
+        <button id="byyear" type="button" aria-pressed="false">General Population</button>
+        <button id="combine" type="button" aria-pressed="true">Combine</button>
+      </div>
+      <div class="chart" id="bubble-chart"></div>
+      <ul class="chart-legend chart-legend-row" id="bubblelegend">
+        <li><span class="key-dot black"></span>Black</li>
+        <li><span class="key-dot latino"></span>Latinx/Hispanic</li>
+        <li><span class="key-dot white"></span>White</li>
+        <li><span class="key-dot asian"></span>Asian/Pacific Islander</li>
+        <li><span class="key-dot other"></span>Other/Unknown</li>
+      </ul>
+      <p class="chart-source">Population is New Yorkers aged 13 and over, as used for the city's diagnosis rates. Source: <a href="https://data.cityofnewyork.us/d/fju2-rdad" target="_blank" rel="noopener">NYC DOHMH HIV/AIDS Annual Report</a></p>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+  <script src="js/charts/common.js"></script>
+  <script src="js/charts/intmap.js"></script>
+  <script src="js/charts/borough.js"></script>
+  <script src="js/charts/linechart.js"></script>
+  <script src="js/charts/living.js"></script>
+  <script src="js/charts/pies.js"></script>
+  <script src="js/charts/bubbles.js"></script>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
-<script src="borough.js"></script>
-<script src="linecharttest2.js"></script>
-<script src="living.js"></script>
-<script src="pieChart.js"></script>
-<script src="pieChart2.js"></script>
-<script src="bubbles.js"></script>
 </html>
