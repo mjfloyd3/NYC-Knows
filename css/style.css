@@ -203,13 +203,6 @@ a.nav-link:hover {
   align-items: center;
 }
 
-.chart-legend-row {
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 4px 16px;
-}
-
 .key-dot {
   display: inline-block;
   flex: none;
@@ -225,12 +218,6 @@ a.nav-link:hover {
 .queens { background: #345995; }
 .statenisland { background: #EAC435; }
 
-.black { background: #ffd92f; }
-.latino { background: #a6d854; }
-.white { background: #e78ac3; }
-.asian { background: #8da0cb; }
-.multi { background: #fc8d62; }
-.other { background: #66c2a5; }
 
 /* ---------- Data page: charts ---------- */
 
@@ -298,14 +285,23 @@ a.nav-link:hover {
   border-radius: 50%;
 }
 
-.bubble-buttons {
+/* ---------- Data page: race/ethnicity chart ---------- */
+
+.race-controls {
   display: flex;
-  justify-content: center;
-  gap: 4px;
-  padding-top: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  padding: 14px 16px 0;
 }
 
-#byyear, #combine {
+.view-toggle {
+  display: flex;
+  gap: 4px;
+}
+
+.view-toggle button {
   background-color: darkgray;
   border: none;
   color: white;
@@ -315,14 +311,114 @@ a.nav-link:hover {
   font-family: "Amiko", sans-serif;
 }
 
-#byyear[aria-pressed="true"], #combine[aria-pressed="true"] {
+.view-toggle button[aria-pressed="true"] {
   background-color: #282C34;
 }
 
-.bubble-labels text {
+.race-legend {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 20px;
+  margin: 0;
+  padding: 0;
+  font-size: 0.9rem;
+}
+
+.race-legend li {
+  display: flex;
+  align-items: center;
+}
+
+.marker-key {
+  display: inline-block;
+  flex: none;
+  width: 12px;
+  height: 12px;
+  margin-right: 6px;
+  border-radius: 50%;
+}
+
+.marker-pop { border: 2.5px solid #345995; background: #f3f3f3; }
+.marker-dx { background: #E40066; }
+
+.race-caption {
+  margin: 10px 16px 0;
+  font-size: 1rem;
+  color: #282C34;
+}
+
+#race-chart text {
   font-family: "Amiko", sans-serif;
-  font-weight: 700;
+}
+
+.race-label {
   font-size: 14px;
+  font-weight: 700;
+  fill: #282C34;
+}
+
+.race-value {
+  font-size: 13px;
+  fill: #555;
+  font-variant-numeric: tabular-nums;
+}
+
+.race-grid line {
+  stroke: #dcdcdc;
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+}
+
+#race-chart .axis path {
+  display: none;
+}
+
+.race-average line {
+  stroke: #282C34;
+  stroke-width: 1;
+}
+
+.race-average text {
+  font-size: 12px;
+  fill: #282C34;
+}
+
+.race-row {
+  transition: opacity 0.2s;
+}
+
+.race-row.is-dimmed {
+  opacity: 0.35;
+}
+
+.data-table {
+  margin: 0 16px;
+  font-size: 0.85rem;
+}
+
+.data-table summary {
+  cursor: pointer;
+  color: #555;
+}
+
+.data-table table {
+  width: 100%;
+  margin: 8px 0;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.data-table th,
+.data-table td {
+  padding: 4px 6px;
+  border-bottom: 1px solid #dcdcdc;
+  text-align: right;
+}
+
+.data-table th:first-child,
+.data-table td:first-child {
+  text-align: left;
 }
 
 /* One tooltip shared by every chart */

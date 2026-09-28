@@ -88,13 +88,18 @@ def main():
     dx_total = sum(num(r['hiv_diagnoses']) for r in races)
     pops = {r['race']: num(r['hiv_diagnoses']) / num(r['hiv_diagnosis_rate']) * 1e5 for r in races}
     pop_total = sum(pops.values())
+    city = totals(rows)[0]
     with open('data/race.csv', 'w', newline='') as f:
         w = csv.writer(f, lineterminator='\n')
-        w.writerow(['race', 'number', 'percent', 'category'])
-        for r in races:
-            w.writerow([r['race'], r['hiv_diagnoses'], round(100 * num(r['hiv_diagnoses']) / dx_total, 1), 'DX'])
-        for race, pop in pops.items():
-            w.writerow([race, int(round(pop, -3)), round(100 * pop / pop_total, 1), 'GEN'])
+        w.writerow(['race', 'hiv_diagnoses', 'diagnosis_share', 'population', 'population_share', 'diagnosis_rate'])
+        for r in sorted(races, key=lambda r: -num(r['hiv_diagnoses'])):
+            w.writerow([r['race'], r['hiv_diagnoses'],
+                        round(100 * num(r['hiv_diagnoses']) / dx_total, 1),
+                        int(round(pops[r['race']], -3)),
+                        round(100 * pops[r['race']] / pop_total, 1),
+                        r['hiv_diagnosis_rate']])
+        # Citywide row, used for the average line in the rate view
+        w.writerow(['All', city['hiv_diagnoses'], 100, int(round(pop_total, -3)), 100, city['hiv_diagnosis_rate']])
 
     # Neighborhoods: write the latest numbers into the map's GeoJSON
     uhf = {squash(r['uhf']): r for r in rows if r['uhf'] != 'All' and r['gender'] == 'All'

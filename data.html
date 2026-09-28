@@ -82,20 +82,24 @@
       <p class="chart-source">Source: <a href="https://data.cityofnewyork.us/d/fju2-rdad" target="_blank" rel="noopener">NYC DOHMH HIV/AIDS Annual Report</a>, which reports men and women only</p>
     </section>
 
-    <section class="data-card data-wide" id="bubblechart">
-      <h2 class="chart-title">Racial Makeup of NYC Population vs New HIV Diagnoses, 2022</h2>
-      <div class="bubble-buttons" role="group" aria-label="Bubble chart view">
-        <button id="byyear" type="button" aria-pressed="false">General Population</button>
-        <button id="combine" type="button" aria-pressed="true">Combine</button>
+    <section class="data-card data-wide" id="racechart">
+      <h2 class="chart-title">Race/Ethnicity: NYC Population vs New HIV Diagnoses, 2022</h2>
+      <div class="race-controls">
+        <div class="view-toggle" role="group" aria-label="Chart view">
+          <button id="view-share" type="button" aria-pressed="true">Share</button>
+          <button id="view-rate" type="button" aria-pressed="false">Rate per 100,000</button>
+        </div>
+        <ul class="race-legend" id="race-legend">
+          <li><span class="marker-key marker-pop"></span>Share of NYC population</li>
+          <li><span class="marker-key marker-dx"></span>Share of new HIV diagnoses</li>
+        </ul>
       </div>
-      <div class="chart" id="bubble-chart"></div>
-      <ul class="chart-legend chart-legend-row" id="bubblelegend">
-        <li><span class="key-dot black"></span>Black</li>
-        <li><span class="key-dot latino"></span>Latinx/Hispanic</li>
-        <li><span class="key-dot white"></span>White</li>
-        <li><span class="key-dot asian"></span>Asian/Pacific Islander</li>
-        <li><span class="key-dot other"></span>Other/Unknown</li>
-      </ul>
+      <p class="race-caption" id="race-caption"></p>
+      <div class="chart" id="race-chart"></div>
+      <details class="data-table">
+        <summary>Show data table</summary>
+        <table id="race-table"></table>
+      </details>
       <p class="chart-source">Population is New Yorkers aged 13 and over, as used for the city's diagnosis rates. Source: <a href="https://data.cityofnewyork.us/d/fju2-rdad" target="_blank" rel="noopener">NYC DOHMH HIV/AIDS Annual Report</a></p>
     </section>
   </main>
@@ -109,6 +113,6 @@
   <script src="js/charts/linechart.js"></script>
   <script src="js/charts/living.js"></script>
   <script src="js/charts/pies.js"></script>
-  <script src="js/charts/bubbles.js"></script>
+  <script src="js/charts/race.js"></script>
 </body>
 </html>
