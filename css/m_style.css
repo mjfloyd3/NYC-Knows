@@ -49,6 +49,16 @@ h2.header.col.s12.light1 {
   color: #ffd149;
 }
 
+/* Bigger banner headings on phones; the parallax containers set line-height: 0,
+   so give them a real one in case the text wraps */
+@media only screen and (max-width: 600px) {
+  h2.header.col.s12.light,
+  h2.header.col.s12.light1 {
+    font-size: 2.75rem;
+    line-height: 1.1;
+  }
+}
+
 /*p {
   line-height: 2rem;
 }*/
