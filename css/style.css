@@ -42,8 +42,8 @@ a.nav-link:hover {
 /* ---------- Shared: site footer ---------- */
 
 .site-footer {
-  background: #282C34;
-  color: #c9ccd3;
+  background: #345995;
+  color: #dbe3f1;
   font-family: "Amiko", sans-serif;
   font-size: 15px;
   line-height: 1.5;
@@ -78,7 +78,7 @@ a.nav-link:hover {
   line-height: 1.2;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #fff;
+  color: #c6d3ea;
 }
 
 .site-footer ul {
@@ -92,26 +92,36 @@ a.nav-link:hover {
 }
 
 .site-footer a {
-  color: #03CEA4;
+  color: #fff;
   text-decoration: none;
+  text-underline-offset: 3px;
 }
 
 .site-footer a:hover,
 .site-footer a:focus-visible {
   text-decoration: underline;
+  text-decoration-color: #ff7961;
+  text-decoration-thickness: 2px;
+}
+
+/* Links that sit inside a sentence get a coral underline so they read as links */
+.site-footer-help a,
+.site-footer-bottom a {
+  text-decoration: underline;
+  text-decoration-color: #ff7961;
 }
 
 .site-footer-bottom {
   max-width: 1140px;
   margin: 0 auto;
   padding: 16px 24px 28px;
-  border-top: 1px solid #3d424d;
+  border-top: 1px solid #4a6ca5;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 8px 24px;
   font-size: 13.5px;
-  color: #9aa0ab;
+  color: #cfd9ec;
 }
 
 .site-footer-bottom p {
