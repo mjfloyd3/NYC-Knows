@@ -4,8 +4,6 @@
 
 NYC Knows helps New Yorkers find free, walk-in HIV testing near them, and puts the city's HIV data in context with interactive charts and maps.
 
-Built by [Jack Floyd](https://linkedin.com/in/jackfloyd). It started in 2017 as one of his first web projects and was modernized in 2026: rebuilt for mobile, moved onto current libraries, and updated with the city's latest public health data.
-
 ## What it does
 
 - **Find a testing site.** Search by zip code, neighborhood or address, or use your current location. The map and list show the nearest clinics with distance, today's hours, tap-to-call phone numbers and directions.
