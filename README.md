@@ -30,11 +30,3 @@ The site works on phones and desktops, supports touch as well as mouse interacti
 - **Boundaries:** NYC Health Department UHF neighborhoods and NYC Open Data zip code areas.
 
 NYC Knows is for general information, not medical advice.
-
-## Running it locally
-
-```sh
-python3 -m http.server
-```
-
-Then open http://localhost:8000. To refresh the statistics when the city publishes a new year, run `python3 scripts/update-data.py`.
