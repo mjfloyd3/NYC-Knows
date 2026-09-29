@@ -113,8 +113,15 @@
   }
 
   function focusSite(s) {
-    map.setView(s.latlng, Math.max(map.getZoom(), 15));
-    s.marker.openPopup();
+    var zoom = Math.max(map.getZoom(), 15);
+    // Open the popup once the map stops moving; opening it mid-animation cancels the
+    // popup's auto-pan and leaves it cut off at the top of the map
+    if (map.getZoom() === zoom && map.getCenter().distanceTo(s.latlng) < 1) {
+      s.marker.openPopup();
+    } else {
+      map.once('moveend', function () { s.marker.openPopup(); });
+      map.setView(s.latlng, zoom);
+    }
     if (window.matchMedia('(max-width: 991px)').matches) {
       document.getElementById('map').scrollIntoView({ behavior: 'smooth', block: 'center' });
     }

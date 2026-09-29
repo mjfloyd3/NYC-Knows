@@ -58,6 +58,13 @@
   min-height: 420px;
   border-radius: 4px;
   z-index: 0;
+  background: #e4e8f0;
+}
+
+/* Tint the OpenStreetMap tiles toward the site's navy so the coral clinic pins stand out.
+   Only the tile layer is filtered; pins, popups and controls keep their own colors. */
+#map .leaflet-tile-pane {
+  filter: grayscale(1) sepia(.35) hue-rotate(185deg) saturate(1.3) brightness(1.08) contrast(.85);
 }
 
 .results-heading {
@@ -127,6 +134,10 @@
 
 .site-popup {
   font-family: "Amiko", sans-serif;
+}
+
+.site-popup a {
+  color: #ff7961;
 }
 
 .hours-table {
