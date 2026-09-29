@@ -1,66 +1,42 @@
 # NYC Knows
 
-"NYC Knows" is a website that allows the user to search nearby free, open, walk-in HIV/STI testing clinics in New York City. The website is supplemented with various HIV statistics specific to New York for educational purposes.
+**Live site: https://mjfloyd3.github.io/NYC-Knows/**
 
-## Pages
+NYC Knows helps New Yorkers find free, walk-in HIV testing near them, and puts the city's HIV data in context with interactive charts and maps.
 
-- **index.html**: landing page
-- **locationsearch.html**: search by zip code, neighborhood or address (or "Near me") to find the closest testing sites
-- **data.html**: interactive charts and a neighborhood map of HIV/AIDS in NYC
-- **grid.html**: community resources, archives and history
+Built by [Jack Floyd](https://linkedin.com/in/jackfloyd). It started in 2017 as one of his first web projects and was modernized in 2026: rebuilt for mobile, moved onto current libraries, and updated with the city's latest public health data.
 
-## Languages & Tools
+## What it does
 
-- [Leaflet](https://leafletjs.com/) with [OpenStreetMap](https://www.openstreetmap.org/) tiles for both maps
-- [NYC GeoSearch](https://geosearch.planninglabs.nyc/) for address search (free, no API key)
-- [D3.js v7](https://d3js.org/) for the charts
-- [Bootstrap 5](https://getbootstrap.com/) for the navigation, [Materialize](https://materializecss.com/) for the landing page parallax
+- **Find a testing site.** Search by zip code, neighborhood or address, or use your current location. The map and list show the nearest clinics with distance, today's hours, tap-to-call phone numbers and directions.
+- **Explore the data.** Interactive D3 charts cover 40 years of HIV/AIDS in New York City: a neighborhood prevalence map, trends from 1981 to 2022, and a comparison of each racial/ethnic group's share of the population against its share of new diagnoses.
+- **Learn more.** A curated grid of community resources, archives and history.
 
-It's a plain static site with no build step. Libraries load from the jsDelivr CDN.
+The site works on phones and desktops, supports touch as well as mouse interactions on the charts, and includes data tables and text alternatives for screen readers.
 
-## Styles
+## How it's built
 
-- `css/common.css`: nav, site-wide defaults and footer (every page)
-- `css/home.css`, `css/data.css`, `css/grid.css`, `css/locationsearch.css`: one file per page
-- `css/materialize-base.css`: the few Materialize rules the homepage still relies on (layout helpers, type scale, parallax containers), extracted from the full library. `js/parallax.js` replaces Materialize's parallax script.
+| Area | Tools |
+| --- | --- |
+| Front end | HTML, CSS, JavaScript (no build step), Bootstrap 5 |
+| Maps | Leaflet with OpenStreetMap tiles |
+| Charts | D3.js v7 |
+| Search | NYC Planning's GeoSearch API, plus bundled zip code and neighborhood lookups |
+| Data pipeline | Python script that pulls the latest figures from NYC Open Data |
+| Hosting | GitHub Pages |
 
-## Running locally
+## Data sources
 
-The pages load data with `fetch`, so they need to be served over HTTP (opening the files directly won't work):
+- **Statistics:** [NYC Department of Health HIV/AIDS Annual Report](https://data.cityofnewyork.us/d/fju2-rdad) on NYC Open Data (2011–2022), with historical 1981–2015 figures from earlier Health Department surveillance data.
+- **Testing locations:** NYC Open Data, 2017 snapshot. The site asks visitors to call ahead and links to the city's [NYC Health Map](https://a816-health.nyc.gov/nychealthmap) for the current list.
+- **Boundaries:** NYC Health Department UHF neighborhoods and NYC Open Data zip code areas.
+
+NYC Knows is for general information, not medical advice.
+
+## Running it locally
 
 ```sh
-npm start
-# or
 python3 -m http.server
 ```
 
-## Deployment
-
-Any static host works. For GitHub Pages: repo **Settings → Pages → Deploy from a branch → `master` / root**.
-
-## Data
-
-| File | What it is | Source |
-| --- | --- | --- |
-| `data/citywide.csv` | HIV/AIDS diagnoses, deaths and viral suppression, 2011 onward | [NYC DOHMH HIV/AIDS Annual Report](https://data.cityofnewyork.us/d/fju2-rdad) |
-| `data/borough.csv`, `data/gender.csv`, `data/race.csv` | Latest-year breakdowns | Same |
-| `data/uhf.geojson` | Neighborhood boundaries with latest-year prevalence and diagnoses | Same, joined to the DOHMH UHF 42 boundaries |
-| `data/history-1981-2015.csv` | AIDS diagnoses and deaths, 1981 - 2015 | NYC DOHMH surveillance data, compiled in 2017 |
-| `data/living.csv` | People living with HIV/AIDS, 1981 - 2015 | Same |
-| `data/sites.json` | Testing locations shown on the map | NYC Open Data HIV Testing Locations (2017 snapshot) |
-| `data/zip-centroids.json` | Center point of each NYC zip code, used for zip search | Built from NYC Open Data [MODZCTA](https://data.cityofnewyork.us/d/pri4-ifjk) |
-| `data/neighborhoods.json` | Center point of each neighborhood, used for neighborhood search | Built from `source-data/Neighborhood Tabulation Areas.geojson` |
-
-### Updating the statistics
-
-The city publishes a new year of data in the annual report dataset. To pull it in:
-
-```sh
-python3 scripts/update-data.py
-```
-
-This rewrites the files from the annual report and uses whatever the latest year is. The Highlights text in `data.html` is written by hand, so update those numbers too.
-
-`source-data/` holds the original downloads (shapefiles, raw CSVs) that the files above were built from.
-
-The testing site details date from 2017 and may be out of date. The live [NYC Open Data dataset](https://data.cityofnewyork.us/d/72ss-25qh) no longer publishes street addresses or coordinates, so the site keeps the older snapshot and points people to the city's [NYC Health Map](https://a816-health.nyc.gov/nychealthmap) for the latest list.
+Then open http://localhost:8000. To refresh the statistics when the city publishes a new year, run `python3 scripts/update-data.py`.
