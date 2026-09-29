@@ -18,6 +18,12 @@
 
 It's a plain static site with no build step. Libraries load from the jsDelivr CDN.
 
+## Styles
+
+- `css/common.css`: nav, site-wide defaults and footer (every page)
+- `css/home.css`, `css/data.css`, `css/grid.css`, `css/locationsearch.css`: one file per page
+- `css/materialize-base.css`: the few Materialize rules the homepage still relies on (layout helpers, type scale, parallax containers), extracted from the full library. `js/parallax.js` replaces Materialize's parallax script.
+
 ## Running locally
 
 The pages load data with `fetch`, so they need to be served over HTTP (opening the files directly won't work):

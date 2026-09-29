@@ -1,5 +1,19 @@
 /* Find a location page */
 
+.findlocation {
+  font-family: "Libre Franklin", sans-serif;
+  font-size: clamp(2.25rem, 7vw, 3.5rem);
+  font-weight: bold;
+  color: #967BB6;
+}
+
+#promptsearch {
+  font-family: "Amiko", Arial, sans-serif;
+  padding-left: 10px;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
 #promptsearch p {
   margin: 0 0 0 5px;
   color: #282C34;
